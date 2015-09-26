@@ -15,12 +15,12 @@ plot6 <- function() {
   motor_vehicles_baltimore_la$City <- ifelse(motor_vehicles_baltimore_la$fips == "06037", "Los Angeles", "Baltimore")
   total_emissions <- aggregate(Emissions ~ year + City, motor_vehicles_baltimore_la, sum)
   
-  png("plot6.png")
+  png("plot6.png", width = 600)
   gp <- ggplot(total_emissions) + 
     geom_line(aes(year, Emissions, color = City)) +
     xlab("Year") + 
     ylab(expression(PM[2.5] ~ " (tons)")) +
-    ggtitle(expression("Total Emissions from" ~ PM[2.5] ~ "by Year"))
+    ggtitle(expression("Annual emission levels from" ~ PM[2.5] ~ "in Baltimore and Los Angeles"))
   print(gp)
   dev.off()    
 }

@@ -24,17 +24,11 @@ plot4 <- function() {
   # Plot data
   total_emissions <- aggregate(Emissions ~ year + type, coal_comb_emissions, sum)
   
-  png("plot4.png")
+  png("plot4.png", width = 600)
   gp <- qplot(year, Emissions, data=total_emissions, color=type, geom="line") + 
-    stat_summary(
-      fun.ymin = "sum", 
-      fun.y = "sum", 
-      fun.ymax = "sum",
-      color = "blue",
-      geom = "line") + 
     xlab("Year") + 
     ylab(expression(PM[2.5] ~ " (tons)")) +    
-    ggtitle(expression(" US Coal Combustion" ~ PM[2.5] ~ "Emissions by Year"))
+    ggtitle(expression("Annual US emission levels from coal combustion-related sources"))
   print(gp)
   dev.off()  
 }

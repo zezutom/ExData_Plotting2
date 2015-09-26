@@ -2,8 +2,6 @@
 # Using the base plotting system, make a plot showing the total PM2.5 emission from all 
 # sources for each of the years 1999, 2002, 2005, and 2008.
 
-# Answer: Yes, total emissions from PM2.5 sharply decreased from 1999 to 2008.
-
 source("utils.R")
 plot1 <- function() {
   total_emissions <- aggregate(Emissions ~ year, NEI, sum)
@@ -11,9 +9,10 @@ plot1 <- function() {
   png("plot1.png")
   plot(total_emissions$year, total_emissions$Emissions,
        type="l",
+       col = "red",
        xlab = "Year",
        ylab=expression(PM[2.5] ~ " (tons)"),
-       main = expression("Total US Emissions from" ~ PM[2.5] ~ "by Year"))
+       main = expression("Annual emission levels from" ~ PM[2.5] ~ "in the US"))
   dev.off()
 }
 

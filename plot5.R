@@ -10,9 +10,10 @@ plot5 <- function() {
   
   png("plot5.png")
   plot(total_emissions$year, total_emissions$Emissions,
+       col = "red",
        type="l",
        xlab = "Year",
        ylab=expression(PM[2.5] ~ " (tons)"),
-       main = expression("Motor Vehicle Emissions for the Baltimore City from" ~ PM[2.5] ~ "by Year"))
+       main = expression("Annual motor vehicle emissions from" ~ PM[2.5] ~ "in Baltimore"))
   dev.off()  
 }
