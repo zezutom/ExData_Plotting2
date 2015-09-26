@@ -1,5 +1,3 @@
-source("utils.R")
-
 # Have total emissions from PM2.5 decreased in the Baltimore City, 
 # Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system 
 # to make a plot answering this question.
@@ -9,6 +7,7 @@ source("utils.R")
 # Emissions dramatically decreased between 2004 - 2008 and remained deeply below
 # the levels observed in 1999.
 
+source("utils.R")
 plot2 <- function() {
   emissions_baltimore <- subset(NEI, fips == "24510")
   total_emissions <- aggregate(Emissions ~ year, emissions_baltimore, sum)
